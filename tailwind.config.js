@@ -1,8 +1,10 @@
+// @ts-check
+
 /** @type {import('tailwindcss').Config} */
-
-const colors = require("tailwindcss/colors");
-const { toRGB, withOpacityValue } = require("./tailwind-helper.js");
-
+import colors from 'tailwindcss/colors';
+import { toRGB, withOpacityValue } from "./tailwind-helper.js";
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 export default {
   content: [
@@ -17,7 +19,6 @@ export default {
         '1/2': '50%',
         '1/3': '33.333333%',
         '1/4': '25%',
-        
       },
       colors: {
         rgb: toRGB({
@@ -48,56 +49,29 @@ export default {
           fuchsia: colors.fuchsia,
           pink: colors.pink,
           rose: colors.rose,
-          sky: colors.sky,
-          stone: colors.stone,
-          neutral: colors.neutral,
-          gray: colors.red,
-          slate: colors.slate,
           custom: '#C4E4FF',
           custom3: '#bfefff',
         }),
         'primary-light': withOpacityValue("--color-primary-light"),
         primary: withOpacityValue("--color-primary"),
         'primary-bold': withOpacityValue("--color-primary-bold"),
-
         'secondary-light': withOpacityValue("--color-secondary-light"),
         secondary: withOpacityValue("--color-secondary"),
         'secondary-bold': withOpacityValue("--color-secondary-bold"),
-
         'third-light': withOpacityValue("--color-third-light"),
         third: withOpacityValue("--color-third"),
         'third-bold': withOpacityValue("--color-third-bold"),
-        
         fourth: withOpacityValue("--color-fourth"),
         tableText: withOpacityValue("--color-table-text"),
         tableTd: withOpacityValue("--color-table-td"),
-        
         success: withOpacityValue("--color-success"),
         info: withOpacityValue("--color-info"),
         warning: withOpacityValue("--color-warning"),
         pending: withOpacityValue("--color-pending"),
         danger: withOpacityValue("--color-danger"),
-        success: withOpacityValue("--color-success"),
         light: withOpacityValue("--color-light"),
-        
         buy: "#4184f3",
         buyBg:"rgba(65,132,243,.1)",
-
-
-        // default: withOpacityValue("--color-default"),
-        // theme1: withOpacityValue("--color-theme1"),
-        // theme2: withOpacityValue("--color-theme2"),
-        // theme3: withOpacityValue("--color-theme3"),
-        // theme4: withOpacityValue("--color-theme4"),
-        // theme5: withOpacityValue("--color-theme5"),
-        // theme6: withOpacityValue("--color-theme6"),
-        // theme7: withOpacityValue("--color-theme7"),
-        // theme8: withOpacityValue("--color-theme8"),
-        // theme9: withOpacityValue("--color-theme9"),
-
-
-
-
         slate: {
           50: withOpacityValue("--color-slate-50"),
           100: withOpacityValue("--color-slate-100"),
@@ -122,7 +96,6 @@ export default {
           800: withOpacityValue("--color-darkmode-800"),
           900: withOpacityValue("--color-darkmode-900"),
         },
-
       },
       fontFamily: {
         roboto: ["Roboto"],
@@ -156,19 +129,19 @@ export default {
         'span-1': 'span 1 / span 1',
       },
       screens: {
-        'xs': '400px', // Extra-small screens
-        'sm': '640px', // Small screens
-        'md': '768px', // Medium screens
-        'lg': '1024px', // Large screens
-        'xl': '1280px', // Extra-large screens
-        'xxl': '1536px', // Custom screen size
+        'xs': '400px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        'xxl': '1536px',
       },
     },
   },
   
   plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
+    tailwindcss,
+    autoprefixer,
   ],
   variants: {
     extend: {
@@ -177,5 +150,4 @@ export default {
       height: ['responsive', 'hover', 'focus', 'group-hover', 'lg'],
     },
   },
-}
-
+};
